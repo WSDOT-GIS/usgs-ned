@@ -1,8 +1,11 @@
-require(["Usgs/ElevationTask", "dojo/on"], function (ElevationTask, on) {
+/*global require, esri*/
+/*jslint browser:true, debug: true*/
+require(["usgs", "dojo/on"], function (usgs, on) {
+	"use strict";
 	esri.config.defaults.io.proxyUrl = "proxy.ashx";
 
 	// Create the elevation task;
-	var elevationTask = new ElevationTask();
+	var elevationTask = new usgs.ElevationTask();
 
 	on(elevationTask, "elevationReturned", function (response) { //elevation, units, dataSource, dataSource, queryPoint
 		console.log(response);

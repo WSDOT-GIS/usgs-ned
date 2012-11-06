@@ -9,59 +9,9 @@ Provides a task object for calling the [USGS Elevation web service].
 [ArcGIS JavaScript API]: http://links.esri.com/javascript
 [USGS Elevation web service]: http://seamless.usgs.gov/service_description_elevation.php
 
-## Use ##
+## Usage ##
 
-The code sample below demonstrates how to use the usgs/ElevationTask.
-
-```javascript
-// Scripts/index.js
-require(["Usgs/ElevationTask", "dojo/on", "esri/geometry"], function (ElevationTask, on) {
-	esri.config.defaults.io.proxyUrl = "proxy.ashx";
-
-	// Create the elevation task;
-	var elevationTask = new ElevationTask();
-
-	// Attach event handlers...
-	on(elevationTask, "elevationReturned", function (response) {
-		// Do something with the response...
-		console.log(response);
-	});
-	on(elevationTask, "error", function (error) {
-		// Do something with the error...
-		console.error("An error occurred", error);
-	});
-
-	// Start the query...
-	elevationTask.getElevation({
-		x: -122.894783019987,
-		y: 47.0029095065612
-	});
-});
-```
-
-
-```html
-<html>
-	<head>
-		<title>USGS Elevation</title>
-		<link rel="stylesheet" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.2/js/esri/css/esri.css" />
-		<script>
-			var dojoConfig = {
-				packages: [
-					{ 
-						name: "Usgs", 
-						location: location.pathname.replace(/\/[^\/]+$/, "") + "/Scripts/usgs" 
-					}
-				]
-			};
-		</script>
-		<script src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=3.2compact"></script>
-		<script src="Scripts/index.js"></script>
-	</head>
-	<body>
-	</body>
-</html>
-```
+See *index.html* for an example.
 
 ## License ##
 Copyright (c) 2012 Washington State Department of Transportation
