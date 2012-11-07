@@ -4,7 +4,7 @@
 // Request http://gisdata.usgs.gov/XMLWebServices2/Elevation_Service.asmx/getElevation?X_Value=-122.89478301998749&Y_Value=47.00290950656123&Elevation_Units=FEET&Source_Layer=*&Elevation_Only=1
 
 
-define(["dojo/Evented", "dojo/_base/declare", "dojo/query", "esri/geometry"], function (Evented, declare, query) {
+define(["dojo/Evented", "dojo/_base/declare", "dojo/query", "esri/utils", "esri/geometry"], function (Evented, declare, query) {
 	"use strict";
 	var ElevationTask, ElevationTaskResponse;
 
@@ -15,6 +15,8 @@ define(["dojo/Evented", "dojo/_base/declare", "dojo/query", "esri/geometry"], fu
 		elevation: null,
 		units: null,
 		constructor: function (response) {
+			/// <summary>Creates a new instance of the ElevationTaskResponse class.</summary>
+			/// <param name="response" type="Object">Description</param>
 			var nodes = query("Elevation_Query", response);
 			this.queryPoint = new esri.geometry.Point(Number(nodes.attr("x")), Number(nodes.attr("y")), new esri.SpatialReference({ wkid: 4326 }));
 			this.dataSource = nodes.query("Data_Source")[0].textContent;
@@ -102,8 +104,10 @@ define(["dojo/Evented", "dojo/_base/declare", "dojo/query", "esri/geometry"], fu
 					output = response;
 				}
 
+				// Trigger the elevation returned event.  Consumed using dojo/on.
 				self.emit("elevationReturned", output);
 			}, function (error) {
+				// Trigger the error event.  Consumed using dojo/on.
 				self.emit("error", error);
 			});
 

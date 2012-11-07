@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.2/js/esri/css/esri.css" />
 		<script>
 			var dojoConfig = {
+				async: true,
 				packages: [
 					{ 
 						name: "usgs", 
@@ -15,6 +16,7 @@
 		</script>
 	</head>
 	<body>
+		<progress id="progress">Calling USGS web service...</progress>
 		<script src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=3.2compact"></script>
 		<script src="Scripts/index.js"></script>
 	</body>
