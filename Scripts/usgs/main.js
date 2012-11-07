@@ -12,6 +12,7 @@ define(["dojo/Evented", "dojo/_base/declare", "dojo/query", "esri/utils", "esri/
 	ElevationTaskResponse = declare(null, {
 		queryPoint: null,
 		dataSource: null,
+		dataId: null,
 		elevation: null,
 		units: null,
 		constructor: function (response) {
@@ -20,6 +21,7 @@ define(["dojo/Evented", "dojo/_base/declare", "dojo/query", "esri/utils", "esri/
 			var nodes = query("Elevation_Query", response);
 			this.queryPoint = new esri.geometry.Point(Number(nodes.attr("x")), Number(nodes.attr("y")), new esri.SpatialReference({ wkid: 4326 }));
 			this.dataSource = nodes.query("Data_Source")[0].textContent;
+			this.dataId = nodes.query("Data_ID")[0].textContent;
 			this.elevation = Number(nodes.query("Elevation")[0].textContent);
 			this.units = nodes.query("Units")[0].textContent;
 		}

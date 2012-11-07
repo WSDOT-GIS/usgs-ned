@@ -6,14 +6,22 @@ require(["usgs", "dojo/on", "dojo/query", "dojo/NodeList-manipulate", "esri"], f
 	esri.config.defaults.io.timeout = 5000;
 
 	// Create the elevation task;
-	var elevationTask = new usgs.ElevationTask();
+	var elevationTask = new usgs.ElevationTask({
+		elevationOnly: false //true
+	});
 
 	on(elevationTask, "elevationReturned", function (response) { //elevation, units, dataSource, dataSource, queryPoint
 		query("#progress").remove();
 		if (typeof (response) === "number") {
-			query("body").append("<p>Elevation = " + response.elevation + " " + response.units + ".</p>");
+			query("body").append(["<p>Elevation = ", response, "</p>"].join(""));
 		} else {
-			query("body").append("<p>Elevation = " + response.elevation + " " + response.units + ".</p>");
+			(function () {
+				var list = query("body").append("<dl>");
+				list.append("<dt>Elevation</dt>").append(["<dd>", response.elevation, " ", response.units, "</dd>"].join(""));
+				list.append("<dt>Data Source</dt>").append(["<dd>", response.dataSource, "</dd>"].join(""));
+				list.append("<dt>Data ID</dt>").append(["<dd>", response.dataId, "</dd>"].join(""));
+				list.append("<dt>Query Point</dt>").append(["<dd>", response.queryPoint.x, ",", response.queryPoint.y].join(""));
+			} ());
 		}
 	});
 	on(elevationTask, "error", function (error) {
