@@ -2,7 +2,7 @@
 /*jslint browser:true, debug: true*/
 require(["usgs", "dojo/on", "dojo/query", "dojo/NodeList-manipulate", "esri"], function (usgs, on, query) {
 	"use strict";
-	esri.config.defaults.io.proxyUrl = "proxy.ashx";
+	esri.config.defaults.io.proxyUrl = "proxy.ashx"; // Set the proxy page. For more info see http://help.arcgis.com/en/webapi/javascript/arcgis/help/jshelp_start.htm#jshelp/ags_proxy.htm.
 	esri.config.defaults.io.timeout = 5000;
 
 	// Create the elevation task;
