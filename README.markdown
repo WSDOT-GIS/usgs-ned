@@ -1,6 +1,8 @@
 USGS Elevation Task for [ArcGIS JavaScript API]
 ===============================================
 
+**NOTE: The [USGS Elevation web service] used by this library no longer exists.**
+
 Provides a task object for calling the [USGS Elevation web service].
 
 ## Prerequisites ##
