@@ -2,22 +2,45 @@
 <html>
 	<head>
 		<title>USGS Elevation</title>
-		<link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.2/js/esri/css/esri.css" />
+		<link rel="stylesheet" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">
+		<link rel="http://js.arcgis.com/3.10/js/dojo/dijit/themes/claro/claro.css"><style>
+			html, body, #map, .map.container {
+				padding: 0;
+				margin: 0;
+				height: 100%;
+			}
+			#instructions {
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 1;
+				padding: 1em;
+				background-color: white;
+				background-color: rgba(255, 255, 255, 0.75);
+				border-bottom-left-radius: 10px;
+			}
+		</style>
 		<script>
-			var dojoConfig = {
-				async: true,
-				packages: [
-					{ 
-						name: "usgs", 
-						location: location.pathname.replace(/\/[^\/]+$/, "") + "/Scripts/usgs" 
-					}
-				]
-			};
+			(function (root) {
+				var dojoConfig = {
+					async: true,
+					packages: [
+						{
+							"name": "usgs",
+							"location": root + "Scripts/usgs",
+						}
+					]
+				}
+				window.dojoConfig = dojoConfig;
+			}([location.origin, location.pathname.replace(/[^\/]+$/, "")].join("")));
 		</script>
 	</head>
-	<body>
-		<progress id="progress">Calling USGS web service...</progress>
-		<script src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=3.2compact"></script>
+	<body class="claro">
+		<div id="map"></div>
+		<div id="instructions">
+			Click on the map to see the elevation at that point.
+		</div>
+		<script src="//js.arcgis.com/3.10/"></script>
 		<script src="Scripts/index.js"></script>
 	</body>
 </html>
