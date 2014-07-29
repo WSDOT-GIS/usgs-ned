@@ -61,7 +61,8 @@ require([
 			// TODO: Figure out why this doesn't work.
 			map.infoWindow.setFeatures([graphic]);
 		} catch (err) {
-			console.log("Error attempting to set content.", err);
+			console.error("Error calling `map.infoWindow.setFeatures`...", err);
+			map.infoWindow.setContent("<progress>Getting Elevation from USGS...</progress>");
 			createContent(graphic).then(function (content) {
 				map.infoWindow.setContent(content);
 			});

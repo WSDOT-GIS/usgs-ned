@@ -6,8 +6,6 @@ Provides a task object for calling the [USGS Elevation web service].
 ## Prerequisites ##
 * [ArcGIS JavaScript API]
 
-[ArcGIS JavaScript API]: http://links.esri.com/javascript
-[USGS Elevation web service]: http://seamless.usgs.gov/service_description_elevation.php
 
 ## Usage ##
 
@@ -24,4 +22,6 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[proxy]:http://help.arcgis.com/en/webapi/javascript/arcgis/help/jshelp_start.htm#jshelp/ags_proxy.htm
+[ArcGIS JavaScript API]: https://developers.arcgis.com/javascript/
+[proxy]:https://developers.arcgis.com/javascript/jshelp/ags_proxy.html
+[USGS Elevation web service]: http://ned.usgs.gov/epqs/
