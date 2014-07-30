@@ -38,11 +38,6 @@ require([
 
 	var infoTemplate = new InfoTemplate("Elevation", createContent);
 
-
-	//usgs.getElevation(-122.894783019987, 47.0029095065612).then(function () {
-	//	console.log(arguments[0]);
-	//});
-
 	/**
 	 * @param {Event} e
 	 * @param {esri/geometry/Point} e.mapPoint - A point in the map coordinate system (web mercator).
