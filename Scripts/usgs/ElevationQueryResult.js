@@ -48,7 +48,7 @@
 	 * @param {Number} y 
 	 * @param {string} dataSource
 	 * @param {Number} elevation 
-	 * @param {string} units - Measurement unit of elevation: "Feet" or "Inches".
+	 * @param {string} units - Measurement unit of elevation: "Feet" or "Meters".
 	 */
 	function ElevationQueryResult(json) {
 		var resultObj;

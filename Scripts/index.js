@@ -8,7 +8,7 @@ require([
 	esriConfig.defaults.io.proxyUrl = "proxy.ashx"; // Set the proxy page. For more info see http://help.arcgis.com/en/webapi/javascript/arcgis/help/jshelp_start.htm#jshelp/ags_proxy.htm.
 
 	var map = new Map("map", {
-		basemap: "streets",
+		basemap: "topo",
 		center: [-120.80566406246835, 47.41322033015946],
 		zoom: 7,
 		showAttribution: true

@@ -6,14 +6,18 @@ define(["esri/request", "dojo/Deferred", "./ElevationQueryResult"], function (es
 	 * Queries the USGS Elevation service.
 	 * @param {number} x - WGS84 X coordinate
 	 * @param {number} y - WGS84 Y coordinate
-	 * @param {string} [units="Feet"] - Valid values are "Feet" and "Meters". Any value other than "Meters" (case-sensitive) will indicate "Feet".
+	 * @param {string} [units="Meters"] - A string containing "Feet", "Foot", or "ft" (case-insensitive) will indicate "Feet". Any other value will be interpreted as "Meters".
 	 * @param {string} [url="http://ned.usgs.gov/epqs/pqs.php"]
 	 * @returns {dojo/Deferred}
 	 */
 	function getElevation(x, y, units, url) {
 		var deferred = new Deferred();
-		if (units !== "Meters") {
+		var footRe = /f(?:[oe]{2})?t/i; // Case-insensitively matches "feet", "foot", or "ft".
+
+		if (units && footRe.test(units)) {
 			units = "Feet";
+		} else {
+			units = "Meters";
 		}
 
 		// Ensure input parameters are numbers.
