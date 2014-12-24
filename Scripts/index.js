@@ -5,7 +5,8 @@ require([
 ], function (usgs, esriConfig, Map, webMercatorUtils, Graphic, InfoTemplate, Deferred) {
 	"use strict";
 
-	esriConfig.defaults.io.proxyUrl = "proxy.ashx"; // Set the proxy page. For more info see http://help.arcgis.com/en/webapi/javascript/arcgis/help/jshelp_start.htm#jshelp/ags_proxy.htm.
+	// Add the USGS server to the API's list of CORS enabled servers.
+	esriConfig.defaults.io.corsEnabledServers.push("ned.usgs.gov");
 
 	var map = new Map("map", {
 		basemap: "topo",
