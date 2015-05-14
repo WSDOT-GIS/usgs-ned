@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>USGS Elevation</title>
+		<link rel="stylesheet" href="//js.arcgis.com/3.10compact/js/esri/css/esri.css">
+		<link rel="//js.arcgis.com/3.10compact/js/dojo/dijit/themes/claro/claro.css"><style>
+			html, body, #map, .map.container {
+				padding: 0;
+				margin: 0;
+				height: 100%;
+			}
+			#instructions {
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 1;
+				padding: 1em;
+				background-color: white;
+				background-color: rgba(255, 255, 255, 0.75);
+				border-bottom-left-radius: 10px;
+			}
+		</style>
+		<script>
+			(function (root) {
+				var dojoConfig = {
+					async: true,
+					packages: [
+						{
+							"name": "usgs",
+							"location": root + "/../.."
+						}
+					]
+				}
+				window.dojoConfig = dojoConfig;
+			}([location.origin, location.pathname.replace(/[^\/]+$/, "")].join("")));
+		</script>
+	</head>
+	<body class="claro">
+		<div id="map"></div>
+		<div id="instructions">
+			Click on the map to see the elevation at that point.
+		</div>
+		<script src="//js.arcgis.com/3.10compact/"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
