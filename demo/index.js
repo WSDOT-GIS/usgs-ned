@@ -1,8 +1,8 @@
 /*global require*/
 /*jslint browser:true, debug: true*/
 require([
-	"usgs", "esri/config", "esri/map", "esri/geometry/webMercatorUtils", "esri/graphic", "esri/InfoTemplate", "dojo/Deferred"
-], function (usgs, esriConfig, Map, webMercatorUtils, Graphic, InfoTemplate, Deferred) {
+	"usgsNed", "esri/config", "esri/map", "esri/geometry/webMercatorUtils", "esri/graphic", "esri/InfoTemplate", "dojo/Deferred"
+], function (usgsNed, esriConfig, Map, webMercatorUtils, Graphic, InfoTemplate, Deferred) {
 	"use strict";
 
 	// Add the USGS server to the API's list of CORS enabled servers.
@@ -22,7 +22,7 @@ require([
 	function createContent(graphic) {
 		var deferred = new Deferred(), mapPoint;
 		mapPoint = webMercatorUtils.webMercatorToGeographic(graphic.geometry);
-		usgs.getElevation(mapPoint.x, mapPoint.y).then(function (elevationQueryResult) {
+		usgsNed.getElevation(mapPoint.x, mapPoint.y).then(function (elevationQueryResult) {
 			var output = ["<dl>"];
 			for (var propName in elevationQueryResult) {
 				if (elevationQueryResult.hasOwnProperty(propName)) {

@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<title>USGS Elevation</title>
-		<link rel="stylesheet" href="//js.arcgis.com/3.10compact/js/esri/css/esri.css">
-		<link rel="//js.arcgis.com/3.10compact/js/dojo/dijit/themes/claro/claro.css"><style>
+		<link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+		<link rel="//js.arcgis.com/3.13compact//dijit/themes/claro/claro.css"><style>
 			html, body, #map, .map.container {
 				padding: 0;
 				margin: 0;
@@ -26,8 +26,9 @@
 					async: true,
 					packages: [
 						{
-							"name": "usgs",
-							"location": root + "/../.."
+							name: "usgsNed",
+							location: root + "/../..",
+							main: "usgsNed"
 						}
 					]
 				}
@@ -40,7 +41,7 @@
 		<div id="instructions">
 			Click on the map to see the elevation at that point.
 		</div>
-		<script src="//js.arcgis.com/3.10compact/"></script>
+		<script src="//js.arcgis.com/3.13compact/"></script>
 		<script src="index.js"></script>
 	</body>
 </html>

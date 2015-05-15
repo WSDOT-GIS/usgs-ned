@@ -44,8 +44,7 @@
     <Content Include="demo\index.html" />
     <Content Include="demo\index.js" />
     <Content Include="index.html" />
-    <Content Include="main.js" />
-    <Content Include="usgs-ned.js" />
+    <Content Include="usgsNed.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
