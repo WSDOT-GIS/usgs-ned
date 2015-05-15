@@ -3,7 +3,7 @@
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as an anonymous module.
 		define(function () {
-			return (root.ElevationQueryResults = factory());
+			return (root.usgsNed = factory());
 		});
 	} else if (typeof exports === 'object') {
 		// Node. Does not work with strict CommonJS, but
@@ -12,7 +12,7 @@
 		module.exports = factory();
 	} else {
 		// Browser globals
-		root.ElevationQueryResults = factory();
+		root.usgsNed = factory();
 	}
 }(this, function () {
 	"use strict";
@@ -44,11 +44,11 @@
 	/**
 	 * An object that represents the results of a query to the USGS Elevation service.
 	 * @param {Object} json
-	 * @param {Number} x
-	 * @param {Number} y 
-	 * @param {string} dataSource
-	 * @param {Number} elevation 
-	 * @param {string} units - Measurement unit of elevation: "Feet" or "Meters".
+	 * @member {Number} x
+	 * @member {Number} y 
+	 * @member {string} dataSource
+	 * @member {Number} elevation 
+	 * @member {string} units - Measurement unit of elevation: "Feet" or "Meters".
 	 */
 	function ElevationQueryResult(json) {
 		var resultObj;
@@ -114,7 +114,78 @@
 		return feature;
 	};
 
+	var exports = {};
 
+	/**
+	 * @typedef NedElevationInfo
+	 * @property {number} x
+	 * @property {number} y
+	 * @property {string} Data_Source
+	 * @property {number} Elevation
+	 * @property {string} Units - 'Feet' or 'Meters'
+	 */
 
-	return ElevationQueryResult;
+	/**
+	 * Converts an object into a query string
+	 * @returns {string}
+	 */
+	function objectToQueryString(/**{Object}*/ o) {
+		var output = [], v;
+		for (var name in o) {
+			if (o.hasOwnProperty(name)) {
+				v = o[name];
+				if (typeof v === "object") {
+					v = JSON.stringify(v);
+				}
+				output.push([name, v].map(encodeURIComponent).join("="));
+			}
+		}
+		return output.join("&");
+	}
+
+	/**
+	 * Creates a request to the USGS NED point service
+	 * @param {number} x
+	 * @param {number} y
+	 * @param {string} [units='Feet']
+	 * @returns {Promise<NedElevationInfo>}
+	 */
+	exports.getElevation = function (x, y, units) {
+		return new Promise(function (resolve, reject) {
+			var baseUrl = "http://ned.usgs.gov/epqs/pqs.php";
+			var params = {
+				x: x,
+				y: y,
+				units: units || "Feet",
+				output: "json"
+			};
+			var request = new XMLHttpRequest();
+			request.open("get", [baseUrl, objectToQueryString(params)].join("?"));
+			request.onloadend = function () {
+				/*
+				{
+					"USGS_Elevation_Point_Query_Service": {
+						"Elevation_Query": {
+							"x": -123,
+							"y": 45,
+							"Data_Source": "NED 1/3 arc-second",
+							"Elevation": 177.965854,
+							"Units": "Feet"
+						}
+					}
+				}
+				 */
+				var response = JSON.parse(this.responseText);
+				resolve(response.USGS_Elevation_Point_Query_Service.Elevation_Query);
+			};
+			request.onerror = function (e) {
+				reject(e);
+			};
+			request.send();
+		});
+	};
+
+	exports.ElevationQueryResult = ElevationQueryResult;
+
+	return exports;
 }));
