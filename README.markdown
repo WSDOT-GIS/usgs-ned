@@ -1,15 +1,10 @@
-USGS Elevation Task for [ArcGIS JavaScript API]
-===============================================
+usgsNed - USGS National Elevation Dataset Point Query Service
+=============================================================
 
-Provides a task object for calling the [USGS Elevation web service].
-
-## Prerequisites ##
-* [ArcGIS JavaScript API]
-
+A library for calling the [USGS NED Point Query Service].
 
 ## Usage ##
 
-See *index.html* for an example.
+See the contents of the *demo* folder for an example.
 
-[ArcGIS JavaScript API]: https://developers.arcgis.com/javascript/
-[USGS Elevation web service]: http://ned.usgs.gov/epqs/
+[USGS NED Point Query Service]: http://ned.usgs.gov/epqs/
