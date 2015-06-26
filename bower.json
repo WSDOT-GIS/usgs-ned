@@ -1,0 +1,42 @@
+{
+  "name": "usgs-ned",
+  "version": "1.0.1",
+  "homepage": "https://github.com/WSDOT-GIS/USGS-Elevation-Task",
+  "authors": [
+    "WSDOT"
+  ],
+  "description": "A library for calling the USGS NED Point Query Service.",
+  "main": "usgsNed.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "USGS",
+    "elevation",
+    "national",
+    "dataset",
+    "point",
+    "query",
+    "United",
+    "States",
+    "geological",
+    "survey",
+    "National",
+    "Map"
+  ],
+  "license": "Unlicense",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "index.html"
+  ],
+  "dependencies": {
+    "promise-polyfill": "~2.1.0"
+  }
+}

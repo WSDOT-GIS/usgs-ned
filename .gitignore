@@ -5,3 +5,4 @@ bin
 obj
 *.csproj.user
 *.suo
+bower_components
