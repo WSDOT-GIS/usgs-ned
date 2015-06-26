@@ -152,7 +152,7 @@
 	 */
 	exports.getElevation = function (x, y, units) {
 		return new Promise(function (resolve, reject) {
-			var baseUrl = "http://ned.usgs.gov/epqs/pqs.php";
+			var baseUrl = "http://nationalmap.gov/epqs/pqs.php";
 			var params = {
 				x: x,
 				y: y,
