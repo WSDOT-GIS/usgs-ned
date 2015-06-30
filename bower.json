@@ -1,6 +1,6 @@
 {
   "name": "usgs-ned",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/WSDOT-GIS/USGS-Elevation-Task",
   "authors": [
     "WSDOT"
@@ -29,6 +29,8 @@
   "license": "Unlicense",
   "ignore": [
     "**/.*",
+    "*.sln",
+    "*.csproj",
     "node_modules",
     "bower_components",
     "test",
