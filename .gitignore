@@ -1,5 +1,5 @@
 # git ignore file
-Scripts/jsapi_vsdoc_v32_2010.js
+typings/
 proxy.*
 bin
 obj

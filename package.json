@@ -1,0 +1,27 @@
+{
+  "name": "usgs-ned",
+  "version": "2.0.0",
+  "description": "A client library for the USGS NED Point Query Service.",
+  "main": "usgsNed.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WSDOT-GIS/usgs-ned.git"
+  },
+  "keywords": [
+    "USGS",
+    "NED",
+    "elevation",
+    "point",
+    "query",
+    "service"
+  ],
+  "author": "WSDOT",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/WSDOT-GIS/usgs-ned/issues"
+  },
+  "homepage": "https://github.com/WSDOT-GIS/usgs-ned#readme"
+}
