@@ -9,19 +9,6 @@
 })(function (require, exports) {
     "use strict";
     /// <reference path="UsgsNedPointQueryService.d.ts" />
-    /*
-     {
-        "USGS_Elevation_Point_Query_Service": {
-            "Elevation_Query": {
-                "x": -122.9009843371,
-                "y": 46.973556842123,
-                "Data_Source": "NED 1\/3 arc-second",
-                "Elevation": 200.480279,
-                "Units": "Feet"
-            }
-        }
-    }
-     */
     var ElevationQueryResult = (function () {
         /**
          * @external {ArcGisFeature}

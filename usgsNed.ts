@@ -1,6 +1,8 @@
 /// <reference path="typings/index.d.ts" />
 
-import ElevationQueryResult from "ElevationQueryResult";
+import ElevationQueryResult from "./ElevationQueryResult";
+
+let fetch = typeof window === "undefined" ? require("node-fetch") : window.fetch; 
 
 /**
  * @typedef NedElevationInfo
@@ -15,9 +17,10 @@ import ElevationQueryResult from "ElevationQueryResult";
  * Converts an object into a query string
  * @returns {string}
  */
-function objectToQueryString(/**{Object}*/ o) {
-	var output = [], v;
-	for (var name in o) {
+function objectToQueryString(o:Object) {
+	let output:any[] = [], v:any;
+	let name:string;
+	for (name in o) {
 		if (o.hasOwnProperty(name)) {
 			v = o[name];
 			if (typeof v === "object") {
@@ -34,9 +37,9 @@ function objectToQueryString(/**{Object}*/ o) {
  * @param {number} x
  * @param {number} y
  * @param {string} [units='Feet']
- * @returns {Promise<NedElevationInfo>}
+ * @returns {Promise<ElevationQueryResult>}
  */
-export function getElevation(x, y, units) {
+export function getElevation(x:number, y:number, units: "Feet" | "Meters" = "Feet"):Promise<ElevationQueryResult> {
 	var baseUrl = "http://nationalmap.gov/epqs/pqs.php";
 	var params = {
 		x: x,
@@ -47,7 +50,7 @@ export function getElevation(x, y, units) {
 	let url = `${baseUrl}?${objectToQueryString(params)}`;
 	return fetch(url).then(function (response) {
 		return response.json();
-	}).then(function (o) {
+	}).then(function (o:UsgsElevationPointQueryServiceResult) {
 		return new ElevationQueryResult(o);
 	});
 

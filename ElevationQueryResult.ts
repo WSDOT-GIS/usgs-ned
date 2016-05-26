@@ -17,6 +17,20 @@
 }
  */
 
+interface ArcGISPoint {
+	x: number;
+	y: number;
+	z?: number;
+	spatialReference?: {
+		wkid: number;
+	}
+}
+
+interface ArcGISFeature<T> {
+	geometry: T,
+	attributes: Object
+}
+
 export default class ElevationQueryResult {
 	x: number;
 	y: number;
@@ -44,7 +58,7 @@ export default class ElevationQueryResult {
 	 * @member {string} units - Measurement unit of elevation: "Feet" or "Meters".
 	 */
 	constructor(json: UsgsElevationPointQueryServiceResult) {
-		var resultObj;
+		var resultObj:ElevationQueryInterface;
 		if (!json) {
 			throw new TypeError("The 'json' parameter cannot be null or undefined.");
 		}
@@ -59,12 +73,14 @@ export default class ElevationQueryResult {
 		this.elevation = resultObj.Elevation;
 		this.units = resultObj.Units;
 	}
+	
+	
 
 	/**
 	 * Returns an {ArcGisFeature} equivalent of this object.
 	 * @returns {ArcGisFeature}
 	 */
-	toArcGisFeature() {
+	toArcGisFeature():ArcGISFeature<ArcGISPoint> {
 		var point, feature;
 		point = {
 			x: this.x,
@@ -90,7 +106,7 @@ export default class ElevationQueryResult {
 	 * @returns {GeoJsonFeature}
 	 */
 	toGeoJson():GeoJSON.Feature<GeoJSON.Point> {
-		var geometry, feature;
+		var geometry:GeoJSON.Point, feature:GeoJSON.Feature<GeoJSON.Point>;
 		geometry = {
 			type: "Point",
 			coordinates: [this.x, this.y, this.elevation]

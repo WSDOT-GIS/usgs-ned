@@ -6,3 +6,4 @@ obj
 *.csproj.user
 *.suo
 bower_components
+node_modules

@@ -38,7 +38,7 @@
     "demo",
     "index.html"
   ],
-  "dependencies": {
-    "promise-polyfill": "~2.1.0"
+  "devDependencies": {
+    "promise-polyfill": "~5.2.0"
   }
 }

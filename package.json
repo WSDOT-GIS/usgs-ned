@@ -4,6 +4,7 @@
   "description": "A client library for the USGS NED Point Query Service.",
   "main": "usgsNed.js",
   "scripts": {
+    "prepublish": "tsc",
     "test": "jasmine"
   },
   "repository": {
@@ -23,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/WSDOT-GIS/usgs-ned/issues"
   },
-  "homepage": "https://github.com/WSDOT-GIS/usgs-ned#readme"
+  "homepage": "https://github.com/WSDOT-GIS/usgs-ned#readme",
+  "devDependencies": {
+    "jasmine": "^2.4.1"
+  },
+  "dependencies": {
+    "node-fetch": "^1.5.3"
+  }
 }
