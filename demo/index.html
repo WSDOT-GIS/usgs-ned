@@ -41,7 +41,9 @@
 		<div id="instructions">
 			Click on the map to see the elevation at that point.
 		</div>
-		<script src="../bower_components/promise-polyfill/Promise.min.js"></script>
+		<!-- Add polyfills for Promise and Fetch API for older browsers. -->
+		<script src="../bower_components/es6-promise/es6-promise.min.js"></script>
+		<script src="../bower_components/fetch/fetch.js"></script>
 		<script src="//js.arcgis.com/3.16/init.js"></script>
 		<script src="index.js"></script>
 	</body>
