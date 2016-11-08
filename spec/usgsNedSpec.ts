@@ -1,6 +1,4 @@
-/// <reference path="../typings/index.d.ts" />
-
-import { getElevation } from '../usgsNed';
+import { getElevation } from "../usgsNed";
 
 describe("usgsNed test", () => {
     const x = -121.74499511715358, y = 46.837649560927126;
@@ -16,7 +14,7 @@ describe("usgsNed test", () => {
             expect(typeof result.dataSource).toBe("string");
             done();
         }, (error) => {
-            done.fail(error)
+            done.fail(error);
         });
     });
 
@@ -31,6 +29,6 @@ describe("usgsNed test", () => {
         promise.then((result) => {
             let geoJsonFeature = result.toGeoJson();
             done();
-        })
+        });
     });
-})
+});
