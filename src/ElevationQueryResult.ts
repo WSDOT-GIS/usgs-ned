@@ -1,19 +1,5 @@
 import { ElevationQueryInterface, UsgsElevationPointQueryServiceResult } from "../UsgsNedPointQueryService";
 
-export interface ArcGISPoint {
-    x: number;
-    y: number;
-    z?: number;
-    spatialReference?: {
-        wkid: number;
-    };
-}
-
-export interface ArcGISFeature<T> {
-    geometry: T;
-    attributes: Object;
-}
-
 export default class ElevationQueryResult {
     x: number;
     y: number;
@@ -57,15 +43,12 @@ export default class ElevationQueryResult {
         this.units = resultObj.Units;
     }
 
-
-
     /**
      * Returns an {ArcGisFeature} equivalent of this object.
      * @returns {ArcGisFeature}
      */
-    toArcGisFeature(): ArcGISFeature<ArcGISPoint> {
-        let point, feature;
-        point = {
+    toArcGisFeature() {
+        let point = {
             x: this.x,
             y: this.y,
             z: this.elevation,
@@ -73,7 +56,7 @@ export default class ElevationQueryResult {
                 wkid: 4326
             }
         };
-        feature = {
+        let feature = {
             geometry: point,
             attributes: {
                 elevationUnits: this.units,
@@ -88,13 +71,12 @@ export default class ElevationQueryResult {
      * Creates a GeoJSON feature equivalent to this object.
      * @returns {GeoJsonFeature}
      */
-    toGeoJson(): GeoJSON.Feature<GeoJSON.Point> {
-        let geometry: GeoJSON.Point, feature: GeoJSON.Feature<GeoJSON.Point>;
-        geometry = {
+    toGeoJson() {
+        let geometry: GeoJSON.Point = {
             type: "Point",
             coordinates: [this.x, this.y, this.elevation]
         };
-        feature = {
+        let feature: GeoJSON.Feature<GeoJSON.Point> = {
             type: "Feature",
             geometry: geometry,
             properties: {

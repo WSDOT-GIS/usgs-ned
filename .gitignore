@@ -1,5 +1,7 @@
 # git ignore file
 .tscache
+.grunt
+_SpecRunner.html
 .baseDir.*
 **/spec/*.js
 **/spec/*.d.ts
