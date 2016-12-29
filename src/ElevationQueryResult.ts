@@ -12,7 +12,7 @@
 }
  */
 
-interface ArcGISPoint {
+export interface ArcGISPoint {
     x: number;
     y: number;
     z?: number;
@@ -21,7 +21,7 @@ interface ArcGISPoint {
     };
 }
 
-interface ArcGISFeature<T> {
+export interface ArcGISFeature<T> {
     geometry: T;
     attributes: Object;
 }

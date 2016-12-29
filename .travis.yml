@@ -4,7 +4,3 @@ node_js:
     - "6"
     - "5"
     - "4"
-before_install:
-    - npm install -g typescript
-    - npm install -g typings
-    - typings install

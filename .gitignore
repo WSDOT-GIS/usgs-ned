@@ -1,9 +1,10 @@
 # git ignore file
-typings/
-proxy.*
-bin
-obj
-*.csproj.user
-*.suo
+spec/*.js
+spec/*.d.ts
+usgsNed.js
+ElevationQueryResult.js
+usgsNed.d.ts
+ElevationQueryResult.d.ts
+.vscode/iis*.json
 bower_components
 node_modules

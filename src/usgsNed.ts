@@ -1,7 +1,5 @@
 import ElevationQueryResult from "./ElevationQueryResult";
 
-let fetch = typeof window === "undefined" ? require("node-fetch") : window.fetch;
-
 /**
  * @typedef NedElevationInfo
  * @property {number} x
@@ -15,7 +13,7 @@ let fetch = typeof window === "undefined" ? require("node-fetch") : window.fetch
  * Converts an object into a query string
  * @returns {string}
  */
-function objectToQueryString(o: Object) {
+function objectToQueryString(o: any) {
     let output: any[] = [], v: any;
     let name: string;
     for (name in o) {
@@ -37,7 +35,7 @@ function objectToQueryString(o: Object) {
  * @param {string} [units='Feet']
  * @returns {Promise<ElevationQueryResult>}
  */
-export function getElevation(x: number, y: number, units: "Feet" | "Meters" = "Feet"): Promise<ElevationQueryResult> {
+export function getElevation(x: number, y: number, units: "Feet" | "Meters" = "Feet") {
     let baseUrl = "http://nationalmap.gov/epqs/pqs.php";
     let params = {
         x: x,
@@ -46,9 +44,9 @@ export function getElevation(x: number, y: number, units: "Feet" | "Meters" = "F
         output: "json"
     };
     let url = `${baseUrl}?${objectToQueryString(params)}`;
-    return fetch(url).then(function (response) {
-        return response.json();
-    }).then(function (o: UsgsElevationPointQueryServiceResult) {
+    return fetch(url).then(response => {
+        return response.json() as Promise<UsgsElevationPointQueryServiceResult>;
+    }).then(o => {
         return new ElevationQueryResult(o);
     });
 
