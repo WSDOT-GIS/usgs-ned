@@ -1,6 +1,8 @@
 # git ignore file
-spec/*.js
-spec/*.d.ts
+.tscache
+.baseDir.*
+**/spec/*.js
+**/spec/*.d.ts
 usgsNed.js
 ElevationQueryResult.js
 usgsNed.d.ts

@@ -20,7 +20,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "prepublish": "tsc",
+    "prepublish": "grunt",
     "test": "jasmine"
   },
   "repository": {
@@ -43,13 +43,23 @@
   "homepage": "https://github.com/WSDOT-GIS/usgs-ned#readme",
   "devDependencies": {
     "@types/geojson": "0.0.31",
-    "@types/jasmine": "^2.5.39",
+    "@types/jasmine": "^2.5.40",
     "@types/node": "^6.0.54",
     "@types/whatwg-fetch": "0.0.33",
+    "babel-preset-env": "^1.1.4",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jasmine": "^1.0.3",
+    "grunt-ts": "^6.0.0-beta.3",
     "isomorphic-fetch": "^2.2.1",
     "jasmine": "^2.5.2",
+    "load-grunt-tasks": "^3.5.2",
     "tslint": "^4.2.0",
-    "typescript": "^2.1.4"
+    "typescript": "^2.1.4",
+    "whatwg-fetch": "^2.0.1"
   },
   "dependencies": {
     "node-fetch": "^1.6.3"

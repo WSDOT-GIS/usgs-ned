@@ -1,5 +1,4 @@
 import { getElevation } from "../usgsNed";
-require("isomorphic-fetch");
 
 describe("usgsNed test", () => {
     const x = -121.74499511715358, y = 46.837649560927126;

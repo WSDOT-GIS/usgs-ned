@@ -1,4 +1,4 @@
-import { ElevationQueryInterface, UsgsElevationPointQueryServiceResult } from "./UsgsNedPointQueryService";
+import { ElevationQueryInterface, UsgsElevationPointQueryServiceResult } from "../UsgsNedPointQueryService";
 
 export interface ArcGISPoint {
     x: number;

@@ -1,19 +1,13 @@
 {
     "compilerOptions": {
-        "module": "umd",
-        "target": "es5",
+        "module": "es6",
+        "target": "es6",
         "noImplicitAny": true,
         "strictNullChecks": true,
         "declaration": true,
         "sourceMap": false,
         "rootDir": "src/",
-        "outDir": ".",
-        "lib": [
-            "dom",
-            "es5",
-            "es2015.iterable",
-            "es2015.promise"
-        ]
+        "outDir": "es2015"
     },
     "include": [
         "src/**/*.ts"
