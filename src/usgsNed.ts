@@ -1,4 +1,5 @@
 import ElevationQueryResult from "./ElevationQueryResult";
+import { UsgsElevationPointQueryServiceResult } from "./UsgsNedPointQueryService";
 
 /**
  * @typedef NedElevationInfo
