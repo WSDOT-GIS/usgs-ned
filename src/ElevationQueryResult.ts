@@ -1,30 +1,21 @@
 import { ElevationQueryInterface, UsgsElevationPointQueryServiceResult } from "../UsgsNedPointQueryService";
 
+/**
+ * The results of a query to the elevation service
+ */
 export default class ElevationQueryResult {
     x: number;
     y: number;
     dataSource: string;
     elevation: number;
+    /**
+     * Measurement unit of elevation: "Feet" or "Meters".
+     */
     units: "Feet" | "Meters";
 
     /**
-     * @external {ArcGisFeature}
-     * @see {@link http://resources.arcgis.com/en/help/arcgis-rest-api/index.html#/Feature_object/02r3000000n8000000/ Feature}
-     */
-
-    /**
-     * @external {GeoJsonFeature}
-     * @see {@link http://geojson.org/geojson-spec.html#feature-objects Feature Objects}
-     */
-
-    /**
      * An object that represents the results of a query to the USGS Elevation service.
-     * @param {Object} json
-     * @member {Number} x
-     * @member {Number} y
-     * @member {string} dataSource
-     * @member {Number} elevation
-     * @member {string} units - Measurement unit of elevation: "Feet" or "Meters".
+     * @throws {TypeError} Throw in the input parameter is either not in the correct format or is null or undefined.
      */
     constructor(json: UsgsElevationPointQueryServiceResult) {
         let resultObj: ElevationQueryInterface;
@@ -44,8 +35,7 @@ export default class ElevationQueryResult {
     }
 
     /**
-     * Returns an {ArcGisFeature} equivalent of this object.
-     * @returns {ArcGisFeature}
+     * Returns an ArcGIS feature equivalent of this object.
      */
     toArcGisFeature() {
         let point = {
@@ -69,7 +59,6 @@ export default class ElevationQueryResult {
 
     /**
      * Creates a GeoJSON feature equivalent to this object.
-     * @returns {GeoJsonFeature}
      */
     toGeoJson() {
         let geometry: GeoJSON.Point = {

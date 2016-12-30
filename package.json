@@ -1,6 +1,6 @@
 {
   "name": "usgs-ned",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A client library for the USGS NED Point Query Service.",
   "main": "usgsNed.js",
   "directories": {

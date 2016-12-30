@@ -1,4 +1,4 @@
-import * as usgsNed from "../usgsNed";
+import getElevation from "../usgsNed";
 import ElevationQueryResult from "../ElevationQueryResult";
 
 describe("usgsNed test", () => {
@@ -49,7 +49,7 @@ describe("usgsNed test", () => {
                 });
             });
         }
-        promise = usgsNed.getElevation(x, y, units);
+        promise = getElevation(x, y, units);
         promise.then(result => {
             expect(result.x).toBeCloseTo(x, 1);
             expect(result.y).toBeCloseTo(y, 1);

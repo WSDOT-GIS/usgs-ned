@@ -2,15 +2,6 @@ import ElevationQueryResult from "./ElevationQueryResult";
 import { UsgsElevationPointQueryServiceResult } from "../UsgsNedPointQueryService";
 
 /**
- * @typedef NedElevationInfo
- * @property {number} x
- * @property {number} y
- * @property {string} Data_Source
- * @property {number} Elevation
- * @property {string} Units - 'Feet' or 'Meters'
- */
-
-/**
  * Converts an object into a query string
  * @returns {string}
  */
@@ -31,13 +22,13 @@ function objectToQueryString(o: any) {
 
 /**
  * Creates a request to the USGS NED point service
- * @param {number} x
- * @param {number} y
- * @param {string} [units='Feet']
- * @returns {Promise<ElevationQueryResult>}
+ * @param x - The X coordinate (EPSG:4326)
+ * @param y - The Y coordinate (EPSG:4326)
+ * @param [units="Feet"] - Specifies the output measurement units
+ * @param [baseUrl="https://nationalmap.gov/epqs/pqs.php"] - If the URL to the service is changed you can use this parameter to override the default.
+ * @returns Returns an object containing elevation information for the specified input point.
  */
-export function getElevation(x: number, y: number, units: "Feet" | "Meters" = "Feet") {
-    let baseUrl = "https://nationalmap.gov/epqs/pqs.php";
+export default function getElevation(x: number, y: number, units: "Feet" | "Meters" = "Feet", baseUrl: string = "https://nationalmap.gov/epqs/pqs.php") {
     let params = {
         x: x,
         y: y,
