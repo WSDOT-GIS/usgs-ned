@@ -47,7 +47,7 @@ module.exports = function (grunt) {
       options: {
         specs: "spec/**/*Spec.js",
         polyfills: [
-          "node_modules/es6-promise/dist/promise-0.1.2.min.js",
+          "node_modules/core-js/client/shim.min.js",
           "node_modules/whatwg-fetch/fetch.js"
         ]
       }
