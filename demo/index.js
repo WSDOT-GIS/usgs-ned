@@ -5,6 +5,8 @@ require([
 ], function (usgsNed, esriConfig, Map, webMercatorUtils, Graphic, InfoTemplate, Deferred) {
 	"use strict";
 
+	var getElevation = usgsNed.default;
+
 	// Add the USGS server to the API's list of CORS enabled servers.
 	esriConfig.defaults.io.corsEnabledServers.push("ned.usgs.gov");
 
@@ -22,7 +24,7 @@ require([
 	function createContent(graphic) {
 		var deferred = new Deferred(), mapPoint;
 		mapPoint = webMercatorUtils.webMercatorToGeographic(graphic.geometry);
-		usgsNed.getElevation(mapPoint.x, mapPoint.y).then(function (elevationQueryResult) {
+		getElevation(mapPoint.x, mapPoint.y).then(function (elevationQueryResult) {
 			var output = ["<dl>"];
 			for (var propName in elevationQueryResult) {
 				if (elevationQueryResult.hasOwnProperty(propName)) {

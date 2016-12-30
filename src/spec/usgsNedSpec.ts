@@ -16,7 +16,7 @@ describe("usgsNed test", () => {
                 x: x,
                 y: y,
                 Units: units,
-                Data_Source: "A datasource would go here",
+                Data_Source: "3DEP 1/3 arc-second",
                 Elevation: 10532.22
             }
         }

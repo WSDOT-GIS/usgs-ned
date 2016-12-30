@@ -15,7 +15,9 @@ export default class ElevationQueryResult {
      * Measurement unit of elevation: "Feet" or "Meters".
      */
     units: "Feet" | "Meters";
-
+    get outOfBounds() {
+        return this.elevation === -1000000;
+    };
     /**
      * An object that represents the results of a query to the USGS Elevation service.
      * @throws {TypeError} Throw in the input parameter is either not in the correct format or is null or undefined.

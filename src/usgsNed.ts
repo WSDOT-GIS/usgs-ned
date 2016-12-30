@@ -2,12 +2,16 @@
  * Module that provides access to USGS NED Point Query service
  */
 
+/**
+ * import modules. (This is needed for TypeDoc to recognize module comment.)
+ */
 import ElevationQueryResult from "./ElevationQueryResult";
 import { UsgsElevationPointQueryServiceResult } from "../UsgsNedPointQueryService";
 
 /**
  * Converts an object into a query string
  * @returns {string}
+ * @private
  */
 function objectToQueryString(o: any) {
     let output: any[] = [], v: any;
