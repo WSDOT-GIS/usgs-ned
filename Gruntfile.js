@@ -56,6 +56,19 @@ module.exports = function (grunt) {
       default: {
         tsconfig: true
       }
+    },
+    typedoc: {
+      build: {
+        options: {
+          out: './docs',
+          ignoreCompilerErrors: true,
+          excludePrivate: true,
+          readme: "README.markdown",
+          rootDir: "./src",
+          exclude: "./spec/usgsNedSpec.ts"
+        },
+        src: ["./src/*"]
+      }
     }
   })
 

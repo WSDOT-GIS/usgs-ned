@@ -1,3 +1,7 @@
+/// <reference types="jasmine" />
+/// <reference types="node" />
+
+
 import getElevation from "../usgsNed";
 import ElevationQueryResult from "../ElevationQueryResult";
 

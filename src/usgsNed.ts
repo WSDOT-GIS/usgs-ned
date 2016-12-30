@@ -1,3 +1,7 @@
+/**
+ * Module that provides access to USGS NED Point Query service
+ */
+
 import ElevationQueryResult from "./ElevationQueryResult";
 import { UsgsElevationPointQueryServiceResult } from "../UsgsNedPointQueryService";
 

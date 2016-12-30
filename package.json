@@ -54,9 +54,11 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jasmine": "^1.0.3",
     "grunt-ts": "^6.0.0-beta.3",
+    "grunt-typedoc": "^0.2.4",
     "jasmine": "^2.5.2",
     "load-grunt-tasks": "^3.5.2",
     "tslint": "^4.2.0",
+    "typedoc": "^0.5.3",
     "typescript": "^2.1.4",
     "whatwg-fetch": "^2.0.1"
   },
