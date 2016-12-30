@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/geojson": "0.0.31",
     "@types/jasmine": "^2.5.40",
-    "@types/node": "^6.0.54",
+    "@types/node": "^6.0.55",
     "@types/whatwg-fetch": "0.0.33",
     "babel-preset-env": "^1.1.4",
     "grunt": "^1.0.1",
