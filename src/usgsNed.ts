@@ -37,7 +37,7 @@ function objectToQueryString(o: any) {
  * @returns {Promise<ElevationQueryResult>}
  */
 export function getElevation(x: number, y: number, units: "Feet" | "Meters" = "Feet") {
-    let baseUrl = "http://nationalmap.gov/epqs/pqs.php";
+    let baseUrl = "https://nationalmap.gov/epqs/pqs.php";
     let params = {
         x: x,
         y: y,
