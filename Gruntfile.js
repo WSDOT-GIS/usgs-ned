@@ -52,6 +52,16 @@ module.exports = function (grunt) {
         ]
       }
     },
+    jasmine_nodejs: {
+      options: {
+        specNameSuffix: "Spec.js"
+      },
+      default: {
+        specs: [
+          "spec/*Spec.js"
+        ]
+      }
+    },
     ts: {
       default: {
         tsconfig: true
@@ -73,5 +83,5 @@ module.exports = function (grunt) {
   })
 
   grunt.registerTask('default', ['clean:before', 'ts', 'clean:after', 'babel', 'copy', 'clean:afterCopy', 'concat'])
-  grunt.registerTask('test', ['jasmine'])
+  grunt.registerTask('test', ['jasmine', 'jasmine_nodejs'])
 }
