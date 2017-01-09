@@ -4,10 +4,9 @@ docs/
 .grunt
 _SpecRunner.html
 .baseDir.*
+es2015
 **/spec/*.js
 **/spec/*.d.ts
-usgsNed.js
-ElevationQueryResult.js
 usgsNed.d.ts
 ElevationQueryResult.d.ts
 .vscode/iis*.json
