@@ -10,4 +10,4 @@ A library for calling the [USGS NED Point Query Service].
 
 See the contents of the *demo* folder for an example.
 
-[USGS NED Point Query Service]: http://nationalmap.gov/epqs/
+[USGS NED Point Query Service]: https://nationalmap.gov/epqs/
