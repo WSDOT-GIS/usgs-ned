@@ -20,6 +20,12 @@ module.exports = function (grunt) {
           dest: '.',
           src: '**/*.d.ts',
           ext: '.d.ts'
+        }, {
+          expand: true,
+          cwd: 'src',
+          dest: '.',
+          src: '**/*.d.ts',
+          ext: '.d.ts'
         }]
       }
     },

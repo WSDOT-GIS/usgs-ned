@@ -1,7 +1,7 @@
 /// <reference types="geojson" />
 /// <reference types="whatwg-fetch" />
 
-import { ElevationQueryInterface, UsgsElevationPointQueryServiceResult } from "../UsgsNedPointQueryService";
+import { ElevationQueryInterface, UsgsElevationPointQueryServiceResult } from "./UsgsNedPointQueryService";
 
 /**
  * The results of a query to the elevation service

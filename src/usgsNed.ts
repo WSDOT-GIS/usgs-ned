@@ -6,7 +6,7 @@
  * import modules. (This is needed for TypeDoc to recognize module comment.)
  */
 import ElevationQueryResult from "./ElevationQueryResult";
-import { UsgsElevationPointQueryServiceResult } from "../UsgsNedPointQueryService";
+import { UsgsElevationPointQueryServiceResult } from "./UsgsNedPointQueryService";
 
 /**
  * Converts an object into a query string
