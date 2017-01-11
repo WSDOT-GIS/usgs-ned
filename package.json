@@ -1,6 +1,6 @@
 {
   "name": "usgs-ned",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A client library for the USGS NED Point Query Service.",
   "main": "usgsNed.js",
   "directories": {
@@ -13,6 +13,7 @@
     "ElevationQueryResult.d.ts",
     "UsgsNedPointQueryService.d.ts"
   ],
+  "types": "usgsNed.d.ts",
   "contributors": [
     "Jeff Jacobson"
   ],
