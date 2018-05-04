@@ -6,7 +6,23 @@
  * import modules. (This is needed for TypeDoc to recognize module comment.)
  */
 import ElevationQueryResult from "./ElevationQueryResult";
-import { UsgsElevationPointQueryServiceResult } from "./UsgsNedPointQueryService";
+
+export interface ElevationQueryInterface {
+  x: number;
+  y: number;
+  Data_Source: string;
+  Elevation: number;
+  Units: "Feet" | "Meters";
+}
+
+/**
+ * Output format as it is returned directly from the service
+ */
+export interface UsgsElevationPointQueryServiceResult {
+  USGS_Elevation_Point_Query_Service: {
+    Elevation_Query: ElevationQueryInterface;
+  };
+}
 
 /**
  * Converts an object into a query string
@@ -14,18 +30,18 @@ import { UsgsElevationPointQueryServiceResult } from "./UsgsNedPointQueryService
  * @private
  */
 function objectToQueryString(o: any) {
-    let output: any[] = [], v: any;
-    let name: string;
-    for (name in o) {
-        if (o.hasOwnProperty(name)) {
-            v = o[name];
-            if (typeof v === "object") {
-                v = JSON.stringify(v);
-            }
-            output.push([name, v].map(encodeURIComponent).join("="));
-        }
+  const output: any[] = [];
+  let name: string;
+  for (name in o) {
+    if (o.hasOwnProperty(name)) {
+      let v = o[name];
+      if (typeof v === "object") {
+        v = JSON.stringify(v);
+      }
+      output.push([name, v].map(encodeURIComponent).join("="));
     }
-    return output.join("&");
+  }
+  return output.join("&");
 }
 
 /**
@@ -36,18 +52,24 @@ function objectToQueryString(o: any) {
  * @param [baseUrl="https://nationalmap.gov/epqs/pqs.php"] - If the URL to the service is changed you can use this parameter to override the default.
  * @returns Returns an object containing elevation information for the specified input point.
  */
-export default function getElevation(x: number, y: number, units: "Feet" | "Meters" = "Feet", baseUrl: string = "https://nationalmap.gov/epqs/pqs.php") {
-    let params = {
-        x: x,
-        y: y,
-        units: units || "Feet",
-        output: "json"
-    };
-    let url = `${baseUrl}?${objectToQueryString(params)}`;
-    return fetch(url).then(response => {
-        return response.json() as Promise<UsgsElevationPointQueryServiceResult>;
-    }).then(o => {
-        return new ElevationQueryResult(o);
+export default function getElevation(
+  x: number,
+  y: number,
+  units: "Feet" | "Meters" = "Feet",
+  baseUrl: string = "https://nationalmap.gov/epqs/pqs.php"
+) {
+  const params = {
+    x,
+    y,
+    units: units || "Feet",
+    output: "json"
+  };
+  const url = `${baseUrl}?${objectToQueryString(params)}`;
+  return fetch(url)
+    .then(response => {
+      return response.json() as Promise<UsgsElevationPointQueryServiceResult>;
+    })
+    .then(o => {
+      return new ElevationQueryResult(o);
     });
-
-};
+}

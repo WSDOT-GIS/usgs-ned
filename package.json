@@ -1,27 +1,27 @@
 {
   "name": "usgs-ned",
-  "version": "3.0.2",
+  "version": "3.1.0-beta.0",
   "description": "A client library for the USGS NED Point Query Service.",
-  "main": "usgsNed.js",
+  "main": "dist/index.js",
   "directories": {
+    "lib": "dist",
     "test": "spec",
     "example": "demo"
   },
   "files": [
-    "usgsNed.d.ts",
-    "ElevationQueryResult.js",
-    "ElevationQueryResult.d.ts",
-    "UsgsNedPointQueryService.d.ts"
+    "dist/*"
   ],
   "types": "usgsNed.d.ts",
   "contributors": [
     "Jeff Jacobson"
   ],
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   },
   "scripts": {
-    "prepublish": "grunt",
+    "prepare": "tsc",
+    "pretest": "tsc -p spec",
+    "posttest": "git clean -dXf src/*.js",
     "test": "jasmine"
   },
   "repository": {
@@ -44,27 +44,16 @@
   "homepage": "https://github.com/WSDOT-GIS/usgs-ned#readme",
   "devDependencies": {
     "@types/geojson": "0.0.31",
-    "@types/jasmine": "^2.5.40",
-    "@types/node": "^6.0.58",
-    "@types/whatwg-fetch": "0.0.33",
-    "babel-preset-env": "^1.1.7",
-    "grunt": "^1.0.1",
-    "grunt-babel": "^6.0.0",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jasmine": "^1.0.3",
-    "grunt-jasmine-nodejs": "^1.5.4",
-    "grunt-ts": "^6.0.0-beta.9",
-    "grunt-typedoc": "^0.2.4",
-    "jasmine": "^2.5.2",
-    "load-grunt-tasks": "^3.5.2",
-    "tslint": "^4.3.1",
-    "typedoc": "^0.5.3",
-    "typescript": "^2.1.4",
-    "whatwg-fetch": "^2.0.1"
+    "@types/jasmine": "^2.8.7",
+    "@types/node": "^8.10.12",
+    "isomorphic-fetch": "^2.2.1",
+    "jasmine": "^3.1.0",
+    "prettier": "^1.12.1",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.12.0",
+    "tslint-plugin-prettier": "^1.3.0",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.8.3"
   },
-  "dependencies": {
-    "node-fetch": "^1.6.3"
-  }
+  "dependencies": {}
 }
