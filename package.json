@@ -1,59 +1,8 @@
 {
-  "name": "usgs-ned",
-  "version": "3.1.0-beta.0",
-  "description": "A client library for the USGS NED Point Query Service.",
-  "main": "dist/index.js",
-  "directories": {
-    "lib": "dist",
-    "test": "spec",
-    "example": "demo"
-  },
-  "files": [
-    "dist/*"
-  ],
-  "types": "dist/index.d.ts",
-  "contributors": [
-    "Jeff Jacobson"
-  ],
-  "engines": {
-    "node": ">=8"
-  },
-  "scripts": {
-    "prepare": "tsc",
-    "pretest": "tsc -p spec",
-    "posttest": "git clean -dXf src/*.js",
-    "test": "jasmine"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WSDOT-GIS/usgs-ned.git"
-  },
-  "keywords": [
-    "USGS",
-    "NED",
-    "elevation",
-    "point",
-    "query",
-    "service"
-  ],
-  "author": "WSDOT",
-  "license": "Unlicense",
-  "bugs": {
-    "url": "https://github.com/WSDOT-GIS/usgs-ned/issues"
-  },
-  "homepage": "https://github.com/WSDOT-GIS/usgs-ned#readme",
-  "devDependencies": {
-    "@types/geojson": "0.0.31",
-    "@types/jasmine": "^2.8.7",
-    "@types/node": "^8.10.12",
-    "isomorphic-fetch": "^2.2.1",
-    "jasmine": "^3.1.0",
-    "prettier": "^1.12.1",
-    "tslint": "^5.10.0",
-    "tslint-config-prettier": "^1.12.0",
-    "tslint-plugin-prettier": "^1.3.0",
-    "typedoc": "^0.11.1",
-    "typescript": "^2.8.3"
-  },
-  "dependencies": {}
+	"scripts": {
+		"test": "lerna run test"
+	},
+	"devDependencies": {
+		"lerna": "^2.11.0"
+	}
 }

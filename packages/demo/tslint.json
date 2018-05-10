@@ -1,0 +1,3 @@
+{
+    "extends": "../usgs-ned/tslint.json"
+}

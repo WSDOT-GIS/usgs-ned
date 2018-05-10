@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>USGS Elevation</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" href="https://js.arcgis.com/3.24/esri/themes/calcite/dijit/calcite.css">
+	<link rel="stylesheet" href="https://js.arcgis.com/3.24/esri/themes/calcite/esri/esri.css">
+	<style>
+		html,
+		body,
+		#map,
+		.map.container {
+			padding: 0;
+			margin: 0;
+			height: 100%;
+		}
+
+		#instructions {
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 1;
+			padding: 1em;
+			background-color: white;
+			background-color: rgba(255, 255, 255, 0.75);
+			border-bottom-left-radius: 10px;
+		}
+	</style>
+	<script>
+		(function (root) {
+			var dojoConfig = {
+				async: true,
+				packages: [
+					{
+						name: "app",
+						location: root + "dist"
+					}
+				]
+			}
+			window.dojoConfig = dojoConfig;
+		}([location.origin, location.pathname.replace(/[^\/]+$/, "")].join("")));
+	</script>
+</head>
+
+<body class="calcite">
+	<div id="map"></div>
+	<div id="instructions">
+		Click on the map to see the elevation at that point.
+	</div>
+	<script src="https://js.arcgis.com/3.24/init.js" integrity="sha384-d3/yJY8yRh6+P0mDJiw+AUk3XMgvO4Q735PrL8HCBQ4DK6ab4/xwyzlkIWiIw2rS" crossorigin="anonymous"></script>
+	<script>
+		require(["app"]);
+	</script>
+</body>
+
+</html>
