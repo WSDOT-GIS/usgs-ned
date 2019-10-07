@@ -1,5 +1,6 @@
 {
 	"scripts": {
+		"bootstrap": "lerna bootstrap --hoist",
 		"test": "lerna run test"
 	},
 	"devDependencies": {
