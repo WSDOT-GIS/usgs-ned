@@ -3,8 +3,10 @@
 		"test": "lerna run test"
 	},
 	"devDependencies": {
-		"lerna": "^2.11.0"
+		"lerna": "^3.16.4"
 	},
 	"private": true,
-	"workspaces": ["packages/*"]
+	"workspaces": [
+		"packages/*"
+	]
 }
