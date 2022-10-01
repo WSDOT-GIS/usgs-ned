@@ -4,7 +4,7 @@
 		"test": "lerna run test"
 	},
 	"devDependencies": {
-		"lerna": "^3.16.4"
+		"lerna": "^5.5.4"
 	},
 	"private": true,
 	"workspaces": [
