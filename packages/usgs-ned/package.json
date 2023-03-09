@@ -1,6 +1,6 @@
 {
   "name": "usgs-ned",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "description": "A client library for the USGS NED Point Query Service.",
   "main": "dist/index.js",
   "directories": {
@@ -8,17 +8,15 @@
     "test": "spec"
   },
   "files": [
-    "dist/*"
+    "dist/*.js",
+    "dist/*.d.ts"
   ],
   "types": "dist/index.d.ts",
   "contributors": [
     "Jeff Jacobson"
   ],
   "scripts": {
-    "prepare": "tsc",
-    "pretest": "tsc -p spec",
-    "posttest": "git clean -dXf src/*.js",
-    "test": "jasmine"
+    "lint": "eslint -f unix \"src/**/*.{ts,tsx}\""
   },
   "repository": {
     "type": "git",
@@ -39,17 +37,6 @@
   },
   "homepage": "https://github.com/WSDOT-GIS/usgs-ned#readme",
   "devDependencies": {
-    "@types/geojson": "^7946.0.7",
-    "@types/jasmine": "^3.4.2",
-    "@types/node": "^12.7.11",
-    "isomorphic-fetch": "^2.2.1",
-    "jasmine": "^3.5.0",
-    "prettier": "^1.18.2",
-    "tslint": "^5.20.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1",
-    "typedoc": "^0.15.0",
-    "typescript": "^3.6.3"
   },
   "dependencies": {}
 }

@@ -1,13 +1,13 @@
 {
-	"scripts": {
-		"bootstrap": "lerna bootstrap --hoist",
-		"test": "lerna run test"
-	},
-	"devDependencies": {
-		"lerna": "^3.16.4"
-	},
-	"private": true,
 	"workspaces": [
-		"packages/*"
-	]
+		"packages/usgs-ned"
+	],
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.54.1",
+		"@typescript-eslint/parser": "^5.54.1",
+		"eslint": "^8.35.0",
+		"eslint-config-prettier": "^8.7.0",
+		"prettier": "^2.8.4",
+		"typescript": "^4.9.5"
+	}
 }

@@ -1,0 +1,6 @@
+# Custom Dictionary Words
+epqs
+Geospatial
+NGTOC
+usgs
+wkid

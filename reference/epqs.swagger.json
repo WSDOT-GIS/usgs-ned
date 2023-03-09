@@ -1,0 +1,175 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Elevation Point Query Service",
+    "description": "This API returns the elevation in international feet or meters for a specific latitude/longitude (NAD 1983) point from the USGS Elevation Service hosted at the NGTOC.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://epqs.nationalmap.gov/v1",
+      "description": "EPQS production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Elevation API",
+      "description": "Query USGS Elevation Service"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "ElevationResponse": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "format": "float"
+              },
+              "y": {
+                "type": "number",
+                "format": "float"
+              },
+              "spatialReference": {
+                "type": "object",
+                "properties": {
+                  "wkid": {
+                    "type": "integer"
+                  },
+                  "latestWkid": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "locationId": {
+            "type": "integer"
+          },
+          "value": {
+            "type": "number"
+          },
+          "rasterId": {
+            "type": "integer"
+          },
+          "resolution": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/{format}": {
+      "get": {
+        "tags": [
+          "Elevation API"
+        ],
+        "summary": "Retrieves elevation data in desired format.",
+        "description": "Displays the results of the point query service in JSON or XML format.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "xml"
+              ]
+            },
+            "description": "Output response type"
+          },
+          {
+            "in": "query",
+            "name": "x",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Longitude"
+          },
+          {
+            "in": "query",
+            "name": "y",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "float"
+            },
+            "description": "Latitude"
+          },
+          {
+            "in": "query",
+            "name": "wkid",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                4326,
+                102100
+              ],
+              "default": 4326
+            },
+            "description": "Spatial Reference"
+          },
+          {
+            "in": "query",
+            "name": "units",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Feet",
+                "Meters"
+              ],
+              "default": "Feet"
+            },
+            "description": "Unit of measurement"
+          },
+          {
+            "in": "query",
+            "name": "includeDate",
+            "schema": {
+              "type": "boolean",
+              "enum": [
+                true,
+                false
+              ],
+              "default": false
+            },
+            "description": "Include date in query response."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElevationResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElevationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error.",
+            "content": {
+              "text/plain": {
+                "example": "[BadRequest] missing parameters"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
