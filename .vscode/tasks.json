@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": "npm test -ws --if-present",
+			"label": "NPM Tests",
+			"detail": "Runs NPM test command for all workspaces",
+			"icon": {
+				"id": "beaker",
+				"color": "terminal.ansiRed"
+			},
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			}
+		}
+	]
+}

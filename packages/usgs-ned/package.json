@@ -18,6 +18,8 @@
     "Jeff Jacobson"
   ],
   "scripts": {
+    "prepare": "tsc",
+    "test": "node ./tests/test.mjs",
     "lint": "eslint -f unix \"src/**/*.{ts,tsx}\""
   },
   "repository": {
