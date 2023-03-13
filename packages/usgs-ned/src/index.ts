@@ -34,9 +34,18 @@ const a = {
 }
 */
 
-export type WKId = 4326 | 102100;
+export const enum WKId {
+  gps = 4326,
+  webMercator = 102100
+}
 
-export type MeasurementUnits = "Feet" | "Meters";
+/**
+ * An enumeration of the valid measurement units.
+ */
+export const enum MeasurementUnits {
+  Feet = "Feet",
+  Meters = "Meters",
+}
 
 /**
  * Parameters for {@link getElevationData}.
@@ -97,6 +106,7 @@ export type Day =
 type DateOrString = Date | `${Month}/${Day}/${Year}`;
 
 export interface ElevationDataAttributes<DT extends DateOrString> {
+  [key: string]: unknown;
   AcquisitionDate: DT;
 }
 
@@ -135,7 +145,7 @@ const reviver: JsonReviver = function (key, value) {
       // item (index 0) in the array. The rest will be left as is.
       return index === 0 ? output - 1 : output;
     });
-    return new Date(year, month - 1, day);
+    return new Date(year, month, day);
   }
   return value;
 };
@@ -192,6 +202,9 @@ export async function getElevationData(
   const response = await fetch(queryUrl);
   const outputText = await response.text();
   const output = JSON.parse(outputText, reviver);
+  if (Object.prototype.hasOwnProperty.call(output, "message")) {
+    throw new Error(output.message);
+  }
   return output as ElevationData<Date>;
 }
 

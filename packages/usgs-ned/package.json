@@ -3,19 +3,23 @@
   "version": "4.0.0",
   "description": "A client library for the USGS NED Point Query Service.",
   "main": "dist/index.js",
+  "type": "module",
   "directories": {
     "lib": "dist",
-    "test": "spec"
+    "test": "tests"
   },
+  "exports": "./dist/index.js",
   "files": [
-    "dist/*.js",
-    "dist/*.d.ts"
+    "./dist/*.js",
+    "./dist/*.d.ts"
   ],
   "types": "dist/index.d.ts",
   "contributors": [
     "Jeff Jacobson"
   ],
   "scripts": {
+    "prepare": "tsc",
+    "test": "node ./tests/test.mjs",
     "lint": "eslint -f unix \"src/**/*.{ts,tsx}\""
   },
   "repository": {
