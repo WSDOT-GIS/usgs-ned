@@ -8,8 +8,12 @@
     "lib": "dist",
     "test": "tests"
   },
-  "exports": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*.d.ts": "./dist/*.d.ts"
+  },
   "files": [
+    "UNLICENSE",
     "./dist/*.js",
     "./dist/*.d.ts"
   ],

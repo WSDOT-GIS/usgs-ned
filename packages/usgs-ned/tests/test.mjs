@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { getElevationData } from "usgs-ned";
+import { getElevationData, MeasurementUnits, WKId } from "usgs-ned";
 
 /**
  * Recursively tests properties of actual and expected using {@link assert}.
@@ -37,7 +37,7 @@ function testLocation(actual, expected) {
   }
 }
 
-const wkid = 4326;
+const wkid = WKId.gps;
 const expectedResult = {
   location: {
     x: -122.57539940320193,
@@ -61,8 +61,8 @@ const expectedResult = {
 const elevationData = await getElevationData({
   x: -122.57539940320193,
   y: 47.258260494342196,
-  units: "Feet",
-  wkid: 4326,
+  units: MeasurementUnits.Feet,
+  wkid: wkid,
   includeDate: true,
 });
 
