@@ -3,7 +3,7 @@
 [![Node.js CI][workflow badge]][workflow yaml]
 [![GitHub](https://img.shields.io/github/forks/WSDOT-GIS/usgs-ned.svg?style=flat-square)](https://github.com/WSDOT-GIS/usgs-ned)
 [![npm](https://img.shields.io/npm/v/usgs-ned.svg)](https://www.npmjs.org/package/usgs-ned)
-[![npm](https://img.shields.io/npm/l/package.svg)](https://www.npmjs.org/package/package)
+[![npm](https://img.shields.io/npm/l/usgs-ned.svg?style=flat-square)](https://www.npmjs.org/package/usgs-ned)
 [![GitHub](https://img.shields.io/github/issues/WSDOT-GIS/usgs-ned.svg)](https://github.com/WSDOT-GIS/usgs-ned/issues)
 
 <!-- markdownlint-disable no-inline-html -->
